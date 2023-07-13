@@ -17,6 +17,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/MicheleTirico/toolbox/issues"
     },
     license='MIT',
-    packages=['src/handlefiles','src/geoprocessing'],
+    packages=['src'],
     install_requires=['requests'],
 )

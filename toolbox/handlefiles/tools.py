@@ -1,1 +1,1 @@
-def test_pachage(a):print (a)
+def test_package(a):print ("handfiles: packages has been imported")

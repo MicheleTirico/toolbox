@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='toolbox',
-    version='0.0.3',
+    version='0.0.4',
     python_required="3.10",
     author='Michele Tirico',
     author_mail="tirico.michele@outlook.com",
@@ -17,6 +17,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/MicheleTirico/toolbox/issues"
     },
     license='MIT',
-    packages=['src'],
+    packages=['toolbox'],
     install_requires=['requests'],
 )

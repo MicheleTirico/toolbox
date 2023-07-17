@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='toolbox',
-    version='0.0.5',
+    version='0.1.1',
     python_required="3.10",
     author='Michele Tirico',
     author_mail="tirico.michele@outlook.com",
@@ -17,6 +17,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/MicheleTirico/toolbox/issues"
     },
     license='MIT',
-    packages=['toolbox','toolbox.geoprocessing'],
+    packages=['toolbox','toolbox.geoprocessing','toolbox.handlefiles'],
     install_requires=['requests'],
 )

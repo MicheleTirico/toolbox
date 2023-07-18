@@ -2,7 +2,7 @@ import sys
 from qgis.core import *
 import geopandas as gpd
 
-class runProcess:
+class RunProcess:
 
     def __init__(self,logger):
         self.__logger=logger

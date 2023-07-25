@@ -16,8 +16,9 @@ def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQ
     df2=pd.DataFrame(df_sym[["p_range",sym_col]])
     if quantile != None:
         if minQuant:
-            newQuantile=min(df1[mat_col].quantile(quantile),df2[sym_col].quantile(quantile))
-            quantile=newQuantile
+            limit=min(df1[mat_col].quantile(quantile),df2[sym_col].quantile(quantile))
+            df1=df1[df1[mat_col]<limit]
+            df2=df2[df2[sym_col]<limit]
         df1=df1[df1[mat_col]<df1[mat_col].quantile(quantile)]
         df2=df2[df2[sym_col]<df2[sym_col].quantile(quantile)]
     df1["model"]="MATSim"

@@ -11,10 +11,11 @@ def dropValColumns(columns,listValToDrop):
     for i in listValToDrop:        columns.pop(columns.index(i))
     return columns
 
-def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn):
+def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQuant):
     df1=pd.DataFrame(df_mat[["time",mat_col]])
     df2=pd.DataFrame(df_sym[["p_range",sym_col]])
     if quantile != None:
+        if minQuant:  quantile=min(df1[mat_col].quantile(quantile),df2[sym_col].quantile(quantile))
         df1=df1[df1[mat_col]<df1[mat_col].quantile(quantile)]
         df2=df2[df2[sym_col]<df2[sym_col].quantile(quantile)]
     df1["model"]="MATSim"

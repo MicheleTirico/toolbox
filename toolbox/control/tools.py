@@ -13,7 +13,7 @@ def dropValColumns(columns,listValToDrop):
 
 def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQuant):
     df1=pd.DataFrame(df_mat[["time",mat_col]])
-    df2=pd.DataFrame(df_sym[["p_range",sym_col]])
+    df2=pd.DataFrame(df_sym[["time",sym_col]])
     if quantile != None:
         if minQuant:
             limit=min(df1[mat_col].quantile(quantile),df2[sym_col].quantile(quantile))

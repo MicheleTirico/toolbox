@@ -22,7 +22,10 @@ def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQ
         df1=df1[df1[mat_col]<df1[mat_col].quantile(quantile)]
         df2=df2[df2[sym_col]<df2[sym_col].quantile(quantile)]
     df1["model"]="MATSim"
-    df1=df1.rename(columns={mat_col:nameColumn,"time":"p_range"})
+    try:df1=df1.rename(columns={mat_col:nameColumn,"time":"p_range"})
+    except KeyError:     logger.warning(cl=None,method=None,message="error in cast columns",doQuit=False)
+
+
     df2["model"]="Symuvia"
     df2=df2.rename(columns={sym_col:nameColumn})
     df3=pd.concat([df1,df2])

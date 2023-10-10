@@ -34,4 +34,4 @@ def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQ
 
 def saveFig(fig,logger, pathSave):
     logger.log(cl=None,method=None,message="store figure at:{}".format(pathSave))
-    fig.savefig(pathSave)
+    fig.savefig(pathSave, bbox_inches="tight")

@@ -36,15 +36,15 @@ class HandleFiles:
             shutil.copyfile(cwd+pathsIn[i],cwd+pathsOut[i])
 
 
-def copyFilesFromDirectory(self,source_folder,destination_folder):
-    for file_name in os.listdir(source_folder):
-        # construct full file path
-        source = source_folder + file_name
-        destination = destination_folder + file_name
-        # copy only files
-        if os.path.isfile(source):
-            shutil.copy(source, destination)
-            self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} from {} to {}".format(file_name,source_folder,destination_folder))
+    def copyFilesFromDirectory(self,source_folder,destination_folder):
+        for file_name in os.listdir(source_folder):
+            # construct full file path
+            source = source_folder + file_name
+            destination = destination_folder + file_name
+            # copy only files
+            if os.path.isfile(source):
+                shutil.copy(source, destination)
+                self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} from {} to {}".format(file_name,source_folder,destination_folder))
 
 
 """ It does not work

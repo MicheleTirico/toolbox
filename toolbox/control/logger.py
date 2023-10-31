@@ -81,3 +81,4 @@ class Logger:
         if method==None or method=="":    displayMt="no method"
         else:   displayMt=method.f_code.co_name
         return "{} {} {} {} {} {} {}".format(time,"{0:<4s}".format(state),message,"(class:",displayCl,", method:",displayMt+")")
+

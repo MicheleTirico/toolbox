@@ -35,3 +35,7 @@ def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQ
 def saveFig(fig,logger, pathSave):
     logger.log(cl=None,method=None,message="store figure at:{}".format(pathSave))
     fig.savefig(pathSave, bbox_inches="tight")
+
+def get_second(time_hms):
+    split=time_hms.split(":")
+    return 60*60*int(split[0])+60*int(split[1])+int(split[2])

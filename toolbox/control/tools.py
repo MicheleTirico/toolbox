@@ -39,4 +39,4 @@ def saveFig(fig,logger, pathSave):
 def get_second(time_hms):
     split=time_hms.split(":")
     if len(split)==3:   return 60*60*int(split[0])+60*int(split[1])+int(split[2])
-    elif len(split)==2: return 60*60*int(split[0])+60*int(split[1]))
+    elif len(split)==2: return 60*60*int(split[0])+60*int(split[1])

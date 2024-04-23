@@ -6,7 +6,6 @@ def storeDataframe(logger,pathStore,df):
     logger.log(cl=None,method=None,message="Store dataframe in:{}".format(pathStore))
     df.to_csv(pathStore, sep=';')
 
-
 def dropValColumns(columns,listValToDrop):
     for i in listValToDrop:        columns.pop(columns.index(i))
     return columns
@@ -40,3 +39,11 @@ def get_second(time_hms):
     split=time_hms.split(":")
     if len(split)==3:   return 60*60*int(split[0])+60*int(split[1])+int(split[2])
     elif len(split)==2: return 60*60*int(split[0])+60*int(split[1])
+
+
+def getListColumnsAsType(df,type):
+    c =[]
+    for i in df.columns:
+        if df[i].dtype==type : c.append(i)
+
+    return [i for i in df.columns if df[i].dtype==type  ]

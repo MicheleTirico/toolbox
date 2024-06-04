@@ -37,11 +37,11 @@ class Logger:
                 with open(self.__pathLog, "a") as f:     f.write(mess+"\n")
         except AttributeError:print ("error in log")
 
-    def logSep (self,cl,method,message,printSep):
+    def logSep (self,cl,method,message):
         try:
             if self.__displayLog:
                 mess= self.__completeMessage("LOG",cl,method,message)
-                if printSep : print ('# '+"-"*100)
+                print ('# '+"-"*100)
                 print (mess)
             if self.__storeLocal:
                 self.__listMessages.append(mess)

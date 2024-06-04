@@ -38,7 +38,7 @@ class Logger:
                 with open(self.__pathLog, "a") as f:     f.write(mess+"\n")
         except AttributeError:print ("error in log")
 
-    def log (self,cl,method,message,printRow):
+    def logSep (self,cl,method,message,printSep):
         try:
             if self.__displayLog:
                 mess= self.__completeMessage("LOG",cl,method,message)

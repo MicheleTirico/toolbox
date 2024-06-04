@@ -30,7 +30,6 @@ class Logger:
         try:
             if self.__displayLog:
                 mess= self.__completeMessage("LOG",cl,method,message)
-                print ('# '+"-"*100)
                 print (mess)
             if self.__storeLocal:
                 self.__listMessages.append(mess)
@@ -42,7 +41,7 @@ class Logger:
         try:
             if self.__displayLog:
                 mess= self.__completeMessage("LOG",cl,method,message)
-                if printRow : print ('# '+"-"*100)
+                if printSep : print ('# '+"-"*100)
                 print (mess)
             if self.__storeLocal:
                 self.__listMessages.append(mess)

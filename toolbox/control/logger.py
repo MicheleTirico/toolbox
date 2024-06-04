@@ -38,6 +38,18 @@ class Logger:
                 with open(self.__pathLog, "a") as f:     f.write(mess+"\n")
         except AttributeError:print ("error in log")
 
+    def log (self,cl,method,message,printRow):
+        try:
+            if self.__displayLog:
+                mess= self.__completeMessage("LOG",cl,method,message)
+                print ('# '+"-"*100)
+                print (mess)
+            if self.__storeLocal:
+                self.__listMessages.append(mess)
+            elif self.__storeLog:
+                with open(self.__pathLog, "a") as f:     f.write(mess+"\n")
+        except AttributeError:print ("error in log")
+
     def setDisplay(self,displayLog,displayWarning,displayError,displayStateSim):
         self.__displayLog=displayLog
         self.__displayWarning=displayWarning

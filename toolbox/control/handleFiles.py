@@ -26,12 +26,12 @@ class HandleFiles:
                 except FileExistsError: self.__logger.warning(cl=self,method=sys._getframe(),message="directory: {} exist".format(path),doQuit=False)
 
 
-    """ It does not work
-    """
+    # """ It does not work
+    # """
     def copyFileInDirectory(self, defCwd,pathsIn,pathsOut):
         if defCwd==False: cwd=self.__cwd
         else:cwd=""
-        for i in range(pathsIn):
+        for i in range(len(pathsIn)):
             self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(pathsIn[i],pathsOut[i]))
             shutil.copyfile(cwd+pathsIn[i],cwd+pathsOut[i])
 

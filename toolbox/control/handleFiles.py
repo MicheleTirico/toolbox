@@ -41,7 +41,6 @@ class HandleFiles:
             self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(path,pathOut))
             shutil.copy(path, pathOut)
 
-
     def copyFilesFromDirectory(self,source_folder,destination_folder):
         for file_name in os.listdir(source_folder):
             # construct full file path

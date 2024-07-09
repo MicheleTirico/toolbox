@@ -39,8 +39,8 @@ class HandleFiles:
     def copyListFilesInDirectory(self,listPathIn,pathOut):
         for path in listPathIn:
             self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(path,pathOut))
-            shutil.copy(path, pathOut)
-
+            try :                shutil.copy(path, pathOut)
+            except FileNotFoundError: self.__logger.warning(cl=self,method=sys._getframe(),message="file not founded",doQuit=False)
     def copyFilesFromDirectory(self,source_folder,destination_folder):
         for file_name in os.listdir(source_folder):
             # construct full file path

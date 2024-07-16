@@ -66,6 +66,7 @@ class Logger:
             elif  self.__storeLog:
                 with open(self.__pathLog, "a") as f:     f.write(mess+"\n")
             print (mess)
+        quit()
 
     """
     doQuit: the whole process end if warning is activated

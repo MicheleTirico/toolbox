@@ -52,10 +52,11 @@ class HandleFiles:
                 shutil.copy(source, destination)
                 self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} from {} to {}".format(file_name,source_folder,destination_folder))
 
-    def copyTree (self, source_dir, destination_dir):
-        self.__logger.log(cl=self,method=sys._getframe(),message="copy tree {} in {}".format(source_dir, destination_dir))
-        shutil.copytree(source_dir, destination_dir)
-
+    def copyTree (self, run, source_dir, destination_dir):
+        if run :
+            self.__logger.log(cl=self,method=sys._getframe(),message="copy tree {} in {}".format(source_dir, destination_dir))
+            try: shutil.copytree(source_dir, destination_dir)
+            except FileExistsError : self.__logger.warning(cl=self,method=sys._getframe(),message="copy tree not allowed, tree in {} exist".format(source_dir, destination_dir),doQuit=False)
 
     """ It does not work
     """

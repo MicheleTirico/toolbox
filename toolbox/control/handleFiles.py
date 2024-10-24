@@ -52,6 +52,10 @@ class HandleFiles:
                 shutil.copy(source, destination)
                 self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} from {} to {}".format(file_name,source_folder,destination_folder))
 
+    def copyTree (self, source_dir, destination_dir):
+        self.__logger.log(cl=self,method=sys._getframe(),message="copy tree {} in {}".format(source_dir, destination_dir))
+        shutil.copytree(source_dir, destination_dir)
+
 
     """ It does not work
     """
@@ -61,3 +65,4 @@ class HandleFiles:
                 if os.path.exists(pathsOut[i])==True: os.remove(pathsIn[i])
             self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(pathsIn[i],pathsOut[i]))
             shutil.move(pathsIn,pathsOut)
+

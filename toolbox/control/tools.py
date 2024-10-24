@@ -6,6 +6,10 @@ def storeDataframe(logger,pathStore,df):
     logger.log(cl=None,method=None,message="Store dataframe in:{}".format(pathStore))
     df.to_csv(pathStore, sep=';')
 
+def storeGeoDataframe(logger,pathStore,df):
+    logger.log(cl=None,method=None,message="Store geo-dataframe in:{}".format(pathStore))
+    df.to_file(pathStore)
+
 def dropValColumns(columns,listValToDrop):
     for i in listValToDrop:        columns.pop(columns.index(i))
     return columns

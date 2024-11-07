@@ -16,7 +16,7 @@ def dropValColumns(columns,listValToDrop):
 def dropColumns(logger, columns, df ):
     df1=df
     for c in columns:
-        try             : df1.drop(columns=[c],inplace=True)
+        try             : df1= df1.drop(columns=[c])
         except KeyError : logger.warning(cl=None,method=None,message="key not founded: {}".format(c),doQuit=False)
     return df1
 

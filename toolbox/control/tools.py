@@ -13,6 +13,11 @@ def storeGeoDataframe(logger,pathStore,df):
 def dropValColumns(columns,listValToDrop):
     for i in listValToDrop:        columns.pop(columns.index(i))
     return columns
+def dropColumns(logger, columns, df ):
+    for c in columns:
+        try             : df.drop(columns=[c],inplace=True)
+        except KeyError : logger.warning(cl=None,method=None,message="key not founded: {}".format(c),doQuit=False)
+    return df
 
 def mergeDfSns(df_mat,df_sym,mat_col,sym_col,quantile,resetIndex,nameColumn,minQuant):
     df1=pd.DataFrame(df_mat[["time",mat_col]])

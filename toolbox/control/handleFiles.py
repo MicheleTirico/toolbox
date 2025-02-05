@@ -52,7 +52,7 @@ class HandleFiles:
         if run :
             self.__logger.log(cl=self,method=sys._getframe(),message="copy tree {} in {}. Remove old tree if exist.".format(source_dir, destination_dir))
             if os.path.exists(destination_dir):
-                self.__logger.warning(cl=self, method=sys._getframe(),message="Remove old tree.")
+                self.__logger.warning(cl=self, method=sys._getframe(),message="Remove old tree.",doQuit=False)
                 shutil.rmtree(destination_dir)
             shutil.copytree(source_dir, destination_dir)
 

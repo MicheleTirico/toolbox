@@ -25,23 +25,13 @@ class HandleFiles:
                 try: os.mkdir(self.__cwd+path)
                 except FileExistsError: self.__logger.warning(cl=self,method=sys._getframe(),message="directory: {} exist".format(path),doQuit=False)
 
-
-    # """ It does not work
-    # """
-    def copyFileInDirectory(self, defCwd,pathsIn,pathsOut):
-        if defCwd==False: cwd=self.__cwd
-        else:cwd=""
-        for i in range(len(pathsIn)):
-            self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(pathsIn[i],pathsOut[i]))
-            shutil.copyfile(cwd+pathsIn[i],cwd+pathsOut[i])
-
-
     def copyListFilesInDirectory(self,run,listPathIn,pathOut):
         if run:
             for path in listPathIn:
                 self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(path,pathOut))
                 try :                shutil.copy(path, pathOut)
                 except FileNotFoundError: self.__logger.warning(cl=self,method=sys._getframe(),message="file {} not founded".format(path),doQuit=False)
+
     def copyFilesFromDirectory(self,source_folder,destination_folder):
         for file_name in os.listdir(source_folder):
             # construct full file path
@@ -58,12 +48,13 @@ class HandleFiles:
             try: shutil.copytree(source_dir, destination_dir)
             except FileExistsError : self.__logger.warning(cl=self,method=sys._getframe(),message="copy tree not allowed, tree in {} exist".format(source_dir, destination_dir),doQuit=False)
 
-    """ It does not work
-    """
-    def copyDirectory(self,pathsIn,pathsOut,removeIfExist):
-        for i in range(pathsIn):
-            if removeIfExist:
-                if os.path.exists(pathsOut[i])==True: os.remove(pathsIn[i])
-            self.__logger.log(cl=self,method=sys._getframe(),message="copy file {} in {}".format(pathsIn[i],pathsOut[i]))
-            shutil.move(pathsIn,pathsOut)
+    def removeTreeAndCopyNewTree (self, run, source_dir, destination_dir):
+        if run :
+            self.__logger.log(cl=self,method=sys._getframe(),message="copy tree {} in {}. Remove old tree if exist.".format(source_dir, destination_dir))
+            if os.path.exists(destination_dir):
+                self.__logger.warning(cl=self, method=sys._getframe(),message="Remove old tree.")
+                shutil.rmtree(destination_dir)
+            shutil.copytree(source_dir, destination_dir)
+
+
 
